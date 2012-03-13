@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="etms-web:war">
+    <output-path>$PROJECT_DIR$/modules/web/target</output-path>
+    <root id="archive" name="etms-web.war">
+      <element id="artifact" artifact-name="etms-web:war exploded" />
+    </root>
+  </artifact>
+</component>

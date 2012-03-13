@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.runqian:report:4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/runqian/report/4/report-4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/runqian/report/4/report-4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/runqian/report/4/report-4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
