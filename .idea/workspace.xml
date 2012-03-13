@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="367dd63f-0746-40a2-b314-c29cc941d7a0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/adsyn/etms-adsyn.iml" afterPath="$PROJECT_DIR$/modules/adsyn/etms-adsyn.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jms/etms-jms.iml" afterPath="$PROJECT_DIR$/modules/jms/etms-jms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/service/etms-service.iml" afterPath="$PROJECT_DIR$/modules/service/etms-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/test-base/etms-test-base.iml" afterPath="$PROJECT_DIR$/modules/test-base/etms-test-base.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workflow/etms-workflow.iml" afterPath="$PROJECT_DIR$/modules/workflow/etms-workflow.iml" />
     </list>
     <ignored path="etms1.3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,10 +64,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorkFlowServiceImplTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="WorkFlowServiceImplTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="35" selection-start="763" selection-end="763" vertical-scroll-proportion="0.06787331">
+            <state line="20" column="35" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CawaveServiceTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/baseinfo/CawaveServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="18" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbnormalAction.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/web/src/main/java/gov/abrs/etms/action/abnormal/AbnormalAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="272" column="31" selection-start="7618" selection-end="7618" vertical-scroll-proportion="0.9296875">
               <folding />
             </state>
           </provider>
@@ -97,13 +110,13 @@
         <option value="$PROJECT_DIR$/modules/common/src/main/resources/conf/spring/applicationContext.xml" />
         <option value="$PROJECT_DIR$/modules/workflow/src/main/resources/conf/spring/applicationContext-jms-all.xml" />
         <option value="$PROJECT_DIR$/modules/common/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/web/src/main/java/gov/abrs/etms/action/abnormal/AbnormalAction.java" />
         <option value="$PROJECT_DIR$/modules/test-base/src/main/resources/conf/spring/applicationContext-test.xml" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyRecordServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/report/ReptServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/modules/web/src/main/java/gov/abrs/etms/action/abnormal/AbnormalAction.java" />
       </list>
     </option>
   </component>
@@ -144,12 +157,24 @@
             <id />
           </State>
           <State>
+            <id>AOP</id>
+          </State>
+          <State>
+            <id>Encapsulation issues</id>
+          </State>
+          <State>
+            <id>Spring Integration</id>
+          </State>
+          <State>
             <id>Spring Model</id>
+          </State>
+          <State>
+            <id>Spring Web Services</id>
           </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>SpringJavaAutowiringInspection</id>
+            <id>SpringBeanAutowiringInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -348,6 +373,114 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="etms-web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="modules/web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="etms-web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="modules/web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="etms-web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="modules/web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="gov/abrs/etms/action/abnormal">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="etms-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="modules/service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="etms-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="modules/service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/test/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="etms-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="modules/service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/test/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="gov/abrs/etms/service/baseinfo">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -399,7 +532,7 @@
     <property name="project.structure.proportion" value="0.11012783" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="MavenSettings" />
+    <property name="options.lastSelected" value="Errors" />
     <property name="recentsLimit" value="5" />
     <property name="project.structure.side.proportion" value="0.29287305" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -753,7 +886,7 @@
     <frame x="0" y="22" width="1440" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13773315" sideWeight="0.70467836" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13773315" sideWeight="0.60087717" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -770,11 +903,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26901004" sideWeight="0.71929824" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25107604" sideWeight="0.70467836" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29532164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25107604" sideWeight="0.60087717" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3991228" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29532164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
@@ -834,23 +967,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/web/src/main/resources/struts.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="92" selection-start="754" selection-end="754" vertical-scroll-proportion="-8.181818">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/web/src/main/java/gov/abrs/etms/action/abnormal/AbnormalAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="58" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/workflow/src/main/java/gov/abrs/etms/service/workflow/ProcessNameMapping.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
@@ -950,7 +1066,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="35" selection-start="763" selection-end="763" vertical-scroll-proportion="0.06787331">
+        <state line="20" column="35" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/baseinfo/CawaveServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="18" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/web/src/main/java/gov/abrs/etms/action/abnormal/AbnormalAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="272" column="31" selection-start="7618" selection-end="7618" vertical-scroll-proportion="0.9296875">
           <folding />
         </state>
       </provider>
