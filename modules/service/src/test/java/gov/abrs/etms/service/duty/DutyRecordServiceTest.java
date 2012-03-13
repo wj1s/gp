@@ -31,7 +31,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.taiji.common.test.DatabaseTestCase;
 
-@ContextConfiguration(locations = { "/conf/spring/applicationContext-test.xml" })
+@ContextConfiguration(locations = { "/conf/spring/applicationContext-test.xml","/conf/spring/applicationContext-jms-all.xml" })
 public class DutyRecordServiceTest extends DatabaseTestCase {
 	@Autowired
 	private DutyRecordService dutyRecordService;

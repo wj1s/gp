@@ -26,7 +26,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.google.common.collect.Lists;
 import com.taiji.common.test.DatabaseTestCase;
 
-@ContextConfiguration(locations = { "/conf/spring/applicationContext-test.xml" })
+@ContextConfiguration(locations = { "/conf/spring/applicationContext-test.xml","/conf/spring/applicationContext-jms-all.xml" })
 public class AbnormalServiceTest extends DatabaseTestCase {
 	@Autowired
 	private AbnormalService abnormalService;

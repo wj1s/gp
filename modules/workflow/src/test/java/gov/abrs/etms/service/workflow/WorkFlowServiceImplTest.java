@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration(locations = { "/conf/spring/applicationContext-test.xml" })
+@ContextConfiguration(locations = { "/conf/spring/applicationContext-test.xml","/conf/spring/applicationContext-jms-all.xml" })
 public class WorkFlowServiceImplTest extends JbpmTestCase {
 	@Autowired
 	private WorkFlowService workFlowService;
