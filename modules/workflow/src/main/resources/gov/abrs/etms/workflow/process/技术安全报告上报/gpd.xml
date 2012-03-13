@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="技术安全报告上报" width="538" height="427">
+  <node name="技术安全报告上报" x="102" y="33" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="重新上报(技办)" x="374" y="131" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+      <bendpoint w1="-130" h1="34" w2="140" h2="33"/>
+    </transition>
+  </node>
+  <node name="单位主管审核" x="107" y="127" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="-10"/>
+      <bendpoint w1="132" h1="-44" w2="-138" h2="-43"/>
+    </transition>
+  </node>
+  <node name="上报局端" x="106" y="255" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="结束" x="108" y="386" width="140" height="40"/>
+</process-diagram>

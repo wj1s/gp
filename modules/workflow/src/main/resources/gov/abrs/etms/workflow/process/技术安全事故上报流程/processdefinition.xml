@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition
+  xmlns="urn:jbpm.org:jpdl-3.2"  name="技术安全事故上报流程">   
+   <start-state name="开始">
+   	  <task name="提交技术安全事故" description="tech.accd.tekOfficer.report">
+   	  	<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+      </task>
+      <transition name="" to="技术安全事故审核(单位主管)"></transition>
+   </start-state>   
+   <task-node name="技术安全事故审核(单位主管)">
+      <task name="技术安全事故审核" description="tech.accd.leader.audit">
+      	<assignment actor-id="ROLE_GOVERNOR"></assignment>
+      </task>
+	  <transition name="" to="上报局端"></transition>      
+      <transition name="驳回" to="重新上报(技办)"></transition>      
+   </task-node>
+   <end-state name="结束"></end-state>   
+   <task-node name="重新上报(技办)">
+      <task name="重新上报" description="tech.accd.tekOfficer.reReportR" >
+      	<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+      </task>
+      <transition name=""  to="技术安全事故审核(单位主管)">
+      </transition>
+   </task-node>
+   <task-node name="技术安全事故后果更新(技办)">
+      <task name="技术安全事故后果更新" description="tech.accd.tekOfficer.reReportH" >
+      	<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+      </task>   
+      <transition name=""  to="技术安全事故审核(单位主管)"></transition>
+   </task-node>
+   <task-node name="上报局端">
+   	  <timer name="上报局端" duedate="0 seconds" repeat="60 seconds">
+   	  	<action name="myAction11" config-type="bean"  class="org.springmodules.workflow.jbpm31.JbpmHandlerProxy">
+			<targetBean>techUploadHandler</targetBean>
+			<factoryKey>jbpmConfiguration</factoryKey>
+		</action>
+   	  </timer>   	  
+	  <task name="上报局端">
+		<assignment actor-id="上报局端"></assignment>
+		<event type="task-start">
+			<cancel-timer name="上报局端" />
+		</event>
+	  </task>         
+      <transition name="" to="结束"></transition>
+      <transition name="更新事故后果" to="技术安全事故后果更新(技办)"></transition>
+      <transition name="驳回" to="重新上报(技办)"></transition>
+   </task-node>
+</process-definition>

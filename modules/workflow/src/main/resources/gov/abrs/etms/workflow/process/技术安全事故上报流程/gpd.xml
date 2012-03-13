@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="技术安全事故上报流程" width="700" height="510">
+  <node name="开始" x="275" y="39" width="190" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="技术安全事故审核(单位主管)" x="274" y="209" width="193" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="-17" y="-13"/>
+      <bendpoint w1="133" h1="-43" w2="-109" h2="-37"/>
+    </transition>
+  </node>
+  <node name="结束" x="282" y="462" width="186" height="40"/>
+  <node name="重新上报(技办)" x="542" y="203" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+      <bendpoint w1="-131" h1="44" w2="111" h2="38"/>
+    </transition>
+  </node>
+  <node name="技术安全事故后果更新(技办)" x="12" y="208" width="196" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="上报局端" x="277" y="357" width="189" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="更新事故后果">
+      <label x="-26" y="16"/>
+      <bendpoint w1="-261" h1="-1" w2="0" h2="148"/>
+    </transition>
+    <transition name="驳回">
+      <label x="-5" y="2"/>
+      <bendpoint w1="241" h1="1" w2="0" h2="155"/>
+    </transition>
+  </node>
+</process-diagram>

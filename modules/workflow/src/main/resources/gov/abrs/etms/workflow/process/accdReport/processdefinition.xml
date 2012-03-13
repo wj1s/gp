@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition xmlns="urn:jbpm.org:jpdl-3.2" name="事故上报流程">
+	<start-state name="填写异态">
+		<task name="填写异态" description="accdReport.abnormal.add">
+			<assignment actor-id="ROLE_WATCH"></assignment>
+		</task>
+		<transition name="" to="机房主任审核"></transition>
+	</start-state>
+	<task-node name="机房主任审核">
+		<task name="机房主任审核" description="accdReport.director.audit">
+			<assignment actor-id="ROLE_DIRECTOR"></assignment>
+		</task>
+		<transition name="" to="技办审核定性"></transition>
+      <transition name="未引起事故" to="结束"></transition>
+	</task-node>
+	<task-node name="技办审核定性">
+		<task name="技办审核定性" description="accdReport.officeclerk.audit">
+			<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+		</task>
+		<transition name="" to="技术主管审核"></transition>
+      <transition name="未引起事故" to="结束"></transition>
+	</task-node>
+	<task-node name="技术主管审核">
+		<task name="技术主管审核" description="accdReport.leader.audit">
+			<assignment actor-id="ROLE_OFFICER"></assignment>
+		</task>
+		<transition name="" to="单位主管审核"></transition>
+		<transition name="驳回" to="事故重新上报(技办)"></transition>
+	</task-node>
+	<task-node name="单位主管审核">
+		<task name="单位主管审核" description="accdReport.leader.audit">
+			<assignment actor-id="ROLE_GOVERNOR"></assignment>
+		</task>
+		<transition name="" to="上报局端"></transition>
+		<transition name="驳回" to="事故重新上报(技办)"></transition>
+	</task-node>
+	<task-node name="事故重新上报(技办)">
+		<task name="事故重新上报(技办)" description="accdReport.officeclerk.reaudit">
+			<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+		</task>
+		<transition name="" to="技术主管审核">
+		</transition>
+      <transition name="未引起事故" to="结束"></transition>
+	</task-node>
+	<task-node name="上报局端">
+		<timer name="上报局端" duedate="0 seconds" repeat="60 seconds">
+			<action name="accdReport" config-type="bean" class="org.springmodules.workflow.jbpm31.JbpmHandlerProxy">
+				<targetBean>accdUploadHandler</targetBean>
+				<factoryKey>jbpmConfiguration</factoryKey>
+			</action>
+		</timer>
+
+		<task name="上报局端">
+			<assignment actor-id="上报局端"></assignment>
+			<event type="task-start">
+				<cancel-timer name="上报局端" />
+			</event>
+		</task>
+		<transition name="" to="结束"></transition>
+		<transition name="驳回" to="事故重新上报(技办)"></transition>
+	</task-node>
+	<end-state name="结束"></end-state>
+</process-definition>

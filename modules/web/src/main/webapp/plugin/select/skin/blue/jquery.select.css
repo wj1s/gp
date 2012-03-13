@@ -1,0 +1,73 @@
+@charset "utf-8";
+/** blue皮肤 */
+/*************************************/
+div.select{
+	padding:0;margin:0;
+	font-family:"微软雅黑",Segoe UI, sans-serif; font-size:12px;line-height:1.8em;
+	background:#fff url(images/select_input_bg.gif) no-repeat;
+	width:auto;
+	}
+div.selecthover{
+	background:#fff url(images/select_input_bg_hover.gif) no-repeat;
+	}
+
+div.select_bottom{
+	background:url(images/resize.gif) right bottom no-repeat;
+	height:9px;font-size:0%;
+	text-align:center;
+	cursor:se-resize;
+	width:8px; height:8px; 
+	position:absolute;right:-1px;bottom:-1px;z-index:10;
+	}
+div.selectDIV,div.selectDIV_hover{
+	width:auto;height:25px;
+	padding-right:18px;
+	padding-left:4px;
+	background:transparent url(images/select_hover.gif) right top no-repeat;
+}
+div.selectDIV_hover{background:transparent url(images/select.gif) right top no-repeat;}
+
+
+.selectDIV_input{
+	width:100%;line-height:24px; height:24px;
+	border:0;
+	color:#000;
+	font-size:12px;
+	overflow:hidden;
+	background:transparent;
+	cursor:default;
+}
+.selectDIV_input_NO{background:transparent url(images/s.gif) right no-repeat;}
+
+div.selectTreeDIV{
+	border:1px #68abdf solid;
+	position:absolute; top:28px; left:0; 
+	z-index:2000;
+	width:0;height:auto;
+	background:#fff;
+	display:none;
+}
+div.selectTreeDIV{
+	overflow:hidden;
+}
+div.selectTreeDIV ul.selectIist{
+	margin:2px 0 2px 0;
+	padding:0;
+	width:100%;
+	overflow-y:auto;
+	overflow-x:auto;
+	list-style-type:none;
+	color:#455267;
+}
+ul.selectIist li{
+	width:auto;
+	cursor:pointer;
+	padding-top:4px;padding-bottom:4px;padding-left:2px;
+	margin:0px 2px 0px 2px;
+	-moz-user-select:none;
+	border-bottom:1px #eee solid;
+}
+li.selectIistHover{background:#2f6ba0;color:#fff;}
+li.selectIistActive{background:#91c8f2;color:#000;}
+
+/*************************************/

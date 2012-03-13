@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="事故报表整合上报流程" width="589" height="381">
+  <node name="技办整合上报" x="-15" y="35" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="技术主管审核" x="180" y="36" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="单位主管审核" x="180" y="129" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="上报局端" x="180" y="243" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="技办重新上报" x="404" y="33" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="结束" x="181" y="340" width="140" height="40"/>
+</process-diagram>

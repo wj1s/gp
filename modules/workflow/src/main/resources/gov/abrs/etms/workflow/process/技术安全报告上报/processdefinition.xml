@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition
+  xmlns="urn:jbpm.org:jpdl-3.2"  name="技术安全报告上报">
+   <start-state name="技术安全报告上报">
+      <task name="技术安全报告上报" description="rept.tech.tekOfficer.report" >
+      	<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+      </task>
+      <transition name="" to="单位主管审核"></transition>
+   </start-state>
+   <task-node name="重新上报(技办)">
+      <task name="技术安全报告重新上报" description="rept.tech.tekOfficer.reReport" >
+      	<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+      </task>
+      <transition name="" to="单位主管审核"></transition>
+   </task-node>
+   <task-node name="单位主管审核">
+      <task name="技术安全报告审核" description="rept.tech.leader.audit">
+      	<assignment actor-id="ROLE_GOVERNOR"></assignment>
+      </task>      
+      <transition name="" to="上报局端">
+        <description>10</description>
+      </transition>
+      <transition name="驳回" to="重新上报(技办)">
+        <description>09</description>
+      </transition>
+   </task-node>
+   <task-node name="上报局端">
+   	  <timer name="上报局端" duedate="0 seconds" repeat="60 seconds">
+   	  	<action name="techReptUploadAction" config-type="bean"  class="org.springmodules.workflow.jbpm31.JbpmHandlerProxy">
+			<targetBean>techReptUploadHandler</targetBean>
+			<factoryKey>jbpmConfiguration</factoryKey>
+		</action>
+   	  </timer>     
+      <task name="事故相关报表上报局端" swimlane="局端接口">
+		<event type="task-start">
+		<cancel-timer name="上报局端"/>
+		</event>		
+      </task>
+      <transition name="" to="结束">
+        <description>20</description>
+      </transition>
+   </task-node>
+   <end-state name="结束"></end-state>   
+</process-definition>

@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <name>ETMS 1 - Jms</name>
+  <groupId>com.taiji.etms1</groupId>
+  <artifactId>etms-jms</artifactId>
+  <packaging>jar</packaging>
+  
+  <parent>
+    <groupId>com.taiji.etms1</groupId>
+    <artifactId>etms</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  
+   <!-- Dependencies  -->
+	<dependencies>
+		<!-- other projects -->
+		<dependency>
+			<groupId>com.taiji.etms1</groupId>
+			<artifactId>etms-common</artifactId>
+		</dependency>
+		 
+		<dependency>
+			<groupId>com.taiji.etms1</groupId>
+			<artifactId>etms-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.etms1</groupId>
+			<artifactId>etms-service</artifactId>
+		</dependency>
+		
+		<!-- other dependencies -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>commons-lang</groupId>
+		  <artifactId>commons-lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jdmk</groupId>
+			<artifactId>jmxtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jmx</groupId>
+			<artifactId>jmxri</artifactId>
+		</dependency>
+	    <dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>activemq-web</artifactId>
+		    <version>${activemq.version}</version>
+		</dependency>
+	    <dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>activemq-core</artifactId>
+		    <version>${activemq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xbean</groupId>
+			<artifactId>xbean-spring</artifactId>
+			<version>3.4</version>
+		</dependency>
+	</dependencies>
+  
+    <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.1</version>
+		        <configuration>
+		          <archive>
+		            <manifest>
+		              <mainClass>gov.abrs.etms.jms.core.StartJmsCore</mainClass>
+		            </manifest>
+		         </archive>
+		        </configuration>
+		    </plugin>
+	   		<plugin>  
+			      <groupId>org.apache.maven.plugins</groupId>  
+			      <artifactId>maven-jar-plugin</artifactId>  
+			      <configuration>  
+			        <archive>  
+			          <manifest>  
+			            <mainClass>gov.abrs.etms.jms.core.StartJmsCore</mainClass>
+			            <addClasspath>true</addClasspath>  
+			            <classpathPrefix>lib/</classpathPrefix>  
+			          </manifest>  
+			        </archive>  
+			      </configuration>  
+			</plugin>		    
+		</plugins>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>Releases</id>
+			<name>Nexus Release Repository</name>
+			<url>http://192.168.3.182:8080/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>Snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://192.168.3.182:8080/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

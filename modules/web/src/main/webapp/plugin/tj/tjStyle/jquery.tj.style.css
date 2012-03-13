@@ -1,0 +1,32 @@
+.style_addButton{background:url(images/add.png) no-repeat;}
+.style_editButton{background:url(images/edit.png) no-repeat;}
+.style_deleteButton{background:url(images/delete.png) no-repeat;}
+.style_confirmButton{background:url(images/confirm.png) no-repeat;}
+.style_closeButton{background:url(images/close.png) no-repeat;}
+.style_viewButton{background:url(images/view.png) no-repeat;}
+
+.asterisk{background:url(images/asterisk.gif) no-repeat;}
+input{font-family:"微软雅黑",Segoe UI, sans-serif; font-size:12px;}
+label{text-align: right; }
+
+.form_submitDiv{text-align:right; border-top:1px #ccc solid;background:#eee;padding:6px 10px 6px 6px;width:auto;clear:both;margin-top:36px;position: relative;}
+
+.input{border:0;border-left:1px #68abdf solid;border-right:1px #68abdf solid;padding:0 0 0 4px;margin:0;background:url(images/input_bg.jpg) repeat-x left top;height:25px; line-height:25px;}
+.inputHover{background:url(images/input_bg_2.jpg) repeat-x;}
+.textInputInvalid{
+	background:url(images/input_bgNo.jpg) repeat-x left bottom;
+}
+.textTextareaInvalid{
+	background:url(images/textarea_bgNo.gif) repeat-x left bottom;
+}
+.textareaNo{border:0;padding:0;padding-left:4px;margin:0;font-family:"微软雅黑",Segoe UI, sans-serif; font-size:12px;line-height:1.5em; overflow:auto; }
+.textarea{}
+
+.textareaOut{border:1px #63a9dd solid;margin-left:100px;margin-top:3px;margin-bottom:3px;background:#fff; }
+.textareaOutHover{border:1px #63a9dd solid;background:#fff; }
+.textareaIn{border:1px #fff solid;}
+.textareaInHover{border:1px #87e7ff solid;}
+
+.pointImg{cursor: pointer;}
+.preiod_div_num{padding:6px;}
+.preiod_div_num span{color:red;margin:0 4px;}

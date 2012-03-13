@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>etms-web</display-name>
+	<!-- Spring ApplicationContext配置文件的路径,可使用通配符,多个路径用,号分隔
+		此参数用于后面的Spring Context Loader -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:conf/security/applicationContext*.xml
+			classpath:conf/spring/applicationContext*.xml
+		</param-value>
+	</context-param>
+	<!-- log4j外部引用配置 -->
+	<context-param>
+  		<param-name>log4jConfigLocation</param-name> 
+  		<param-value>file:D:/EtmsPlatform/etms-properties/log4j.properties</param-value> 
+ 	 </context-param>
+
+	<!-- Filter 定义  -->
+	<!-- Character Encoding filter -->
+
+	<!-- Hibernate Open Session In View filter-->
+	<filter>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+
+	<!-- SpringSecurity filter-->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<!-- Struts2 filter -->
+	<filter>
+		<filter-name>struts2CleanupFilter</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+	</filter>
+
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>struts2Filter</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+	<!-- Filter 映射 -->
+
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>*.blank</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+		
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>/processimage</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hibernateOpenSessionInViewFilter</filter-name>
+		<url-pattern>/j_spring_security_check</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>*.blank</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/j_spring_security_check</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/j_spring_security_logout</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>struts2CleanupFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>struts2CleanupFilter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2CleanupFilter</filter-name>
+		<url-pattern>*.blank</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>	
+	
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>*.blank</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>	
+	
+	<filter-mapping>
+		<filter-name>struts2Filter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>struts2Filter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>struts2Filter</filter-name>
+		<url-pattern>*.blank</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>	
+	<listener> 
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class> 
+    </listener>
+	<!--Spring的ApplicationContext 载入 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	
+	<listener>
+   		<listener-class>org.apache.struts2.dispatcher.ng.listener.StrutsListener</listener-class>
+	</listener>
+	
+	<!-- 润前报表 -->
+	<!-- servlet>
+		<servlet-name>reportServlet</servlet-name>
+		<servlet-class>com.runqian.report4.view.ReportServlet</servlet-class>
+		<init-param>
+			<param-name>configFile</param-name>
+			<param-value>/WEB-INF/runqian/reportConfig.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet -->
+
+	<servlet>
+	    <servlet-name>sitemesh-freemarker</servlet-name>
+	    <servlet-class>org.apache.struts2.sitemesh.FreemarkerDecoratorServlet</servlet-class>
+	    <init-param>
+	        <param-name>default_encoding</param-name>
+	        <param-value>UTF-8</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	 <servlet>
+	    <servlet-name>JspSupportServlet</servlet-name>
+	    <servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>ProcessImageServlet</servlet-name>
+		<servlet-class>gov.abrs.etms.tag.ProcessImageServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ProcessImageServlet</servlet-name>
+		<url-pattern>/processimage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	    <servlet-name>sitemesh-freemarker</servlet-name>
+	    <url-pattern>*.ftl</url-pattern>
+	</servlet-mapping>
+
+	<!-- session超时定义,单位为分钟 -->
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+</web-app>

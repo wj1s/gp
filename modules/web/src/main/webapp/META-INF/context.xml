@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="tjapetms"
+		type="javax.sql.DataSource" username="abrsetms" password="abrsetms123"
+		url="jdbc:sqlserver://localhost:1433;databaseName=tjapetms-bes-pop"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+</Context>

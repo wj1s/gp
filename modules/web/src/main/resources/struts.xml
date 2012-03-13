@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.convention.default.parent.package" value="crud-default" />
+	<constant name="struts.convention.package.locators" value="action" />
+	<constant name="struts.convention.package.locators.basePackage" value="gov.abrs.etms" />
+	<constant name="struts.action.extension" value="action,ajax,blank"></constant>
+	<!-- 用于上传文件 最大500M -->
+	<constant name="struts.multipart.maxSize" value="500242880" />
+	<!-- 用于CRUD Action的parent package -->
+	<package name="crud-default" extends="convention-default">
+		<!-- 自定义返回值类型 -->
+		<result-types>
+		   <result-type name="grid" 
+		                class="gov.abrs.etms.action.util.GridResult" />
+		</result-types>
+		<!-- 基于paramsPrepareParamsStack,
+			增加store interceptor保证actionMessage在redirect后不会丢失 -->
+		<interceptors>
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="crudStack" />
+	</package>
+</struts>

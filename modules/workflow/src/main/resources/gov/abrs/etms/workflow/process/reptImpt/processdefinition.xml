@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition xmlns="urn:jbpm.org:jpdl-3.2"  name="保证期报表上报流程">
+	<start-state name="技办整合上报">
+		<task name="技办整合上报" description="rept.impt.tekOfficer.report">
+			<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+		</task>
+		<transition name="" to="技术主管审核"></transition>
+	</start-state>
+	<task-node name="技术主管审核">
+	    <task name="技术主管审核" description="rept.impt.leader.audit">
+			<assignment actor-id="ROLE_OFFICER"></assignment>
+	 	</task>		
+	    <transition name="" to="单位主管审核"></transition>
+	    <transition name="驳回" to="技办重新上报"></transition>
+ 	</task-node>
+ 	<task-node name="单位主管审核">
+    	<task name="单位主管审核" description="rept.impt.leader.audit">
+			<assignment actor-id="ROLE_GOVERNOR"></assignment>
+		</task>	
+	    <transition name="" to="上报局端"></transition>
+	    <transition name="驳回" to="技办重新上报"></transition>
+	</task-node>
+ 	<task-node name="上报局端">
+	    <timer name="上报局端" duedate="0 seconds" repeat="60 seconds">
+			<action name="accdReport" config-type="bean" class="org.springmodules.workflow.jbpm31.JbpmHandlerProxy">
+				<targetBean>accdAndImptReportHandler</targetBean>
+				<factoryKey>jbpmConfiguration</factoryKey>
+			</action>
+		</timer>
+
+		<task name="上报局端">
+			<assignment actor-id="上报局端"></assignment>
+			<event type="task-start">
+				<cancel-timer name="上报局端" />
+			</event>
+		</task>   
+	    <transition name="" to="结束"></transition>
+	    <transition name="驳回" to="技办重新上报"></transition>
+ 	</task-node>
+ 	<task-node name="技办重新上报">
+ 		<task name="技办重新上报" description="rept.impt.tekOfficer.reReport">
+			<assignment actor-id="ROLE_TEKOFFICER"></assignment>
+		</task>
+    	<transition name="" to="技术主管审核"></transition>
+ 	</task-node>
+ 	<end-state name="结束"></end-state>
+</process-definition>

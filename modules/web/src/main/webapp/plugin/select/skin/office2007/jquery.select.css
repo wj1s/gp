@@ -1,0 +1,61 @@
+@charset "utf-8";
+/** offie2007皮肤 */
+/*************************************/
+div.select{background:#fff;width:auto;height:auto;float:left;}
+div.select_bottom{
+	background:url(images/resize.gif) right bottom no-repeat;
+	height:9px;font-size:0%;
+	text-align:center;
+	cursor:se-resize;
+	width:8px; height:8px; 
+	position:absolute;right:-1px;bottom:-1px;z-index:99999999;
+	}
+div.selectDIV,div.selectDIV_hover{
+	width:auto;height:20px;
+	padding-right:18px;
+	background:transparent url(images/select_hover.gif) right top no-repeat;
+	border:1px #b3c7e1 solid;
+}
+div.selectDIV_hover{background:#fff url(images/select.gif) right top no-repeat;border:1px #a29769 solid;}
+.selectDIV_input{
+	width:100%;line-height:20px; height:20px;
+	border:0;
+	padding-left:2px;
+	color:#000;
+	font-size:12px;
+	overflow:hidden;
+	background:transparent;
+}
+.selectDIV_input_NO{background:transparent url(images/s.gif) right no-repeat;}
+div.selectTreeDIV{
+	border:1px #868686 solid;
+	position:absolute; top:24px; left:0; 
+	z-index:99999999;
+	width:0;height:auto;
+	background:#fff;
+	display:none;
+}
+div.selectTreeDIV{
+	overflow:hidden;
+}
+div.selectTreeDIV ul.selectIist{
+	margin:2px 0 2px 0;
+	padding:0;
+	width:100%;
+	overflow-y:auto;
+	overflow-x:auto;
+	list-style-type:none;
+	color:#455267;
+}
+ul.selectIist li{
+	width:auto;
+	cursor:default;
+	padding-top:3px;padding-bottom:3px;padding-left:2px;
+	margin:0px 2px 0px 2px;
+	-moz-user-select:none;
+	border-bottom:1px #eee solid;
+}
+li.selectIistHover{background:#fefab9;color:#000;}
+li.selectIistActive{background:#4e6aaf;color:#fff;}
+
+/*************************************/

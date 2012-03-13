@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:sec="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<bean id="filterChainProxyEtms" class="com.taiji.security.web.FilterChainProxyEtms">
+		<property name="authType" value="${etms.auth.type}" />
+	</bean>
+	<!-- 认证管理器，下面的顺序不同会影响报错的信息 start -->
+	<sec:authentication-manager alias="authenticationManager">
+		<sec:authentication-provider ref="anonymousAuthenticationProvider" />
+		<sec:authentication-provider ref="daoAuthenticationProvider" />
+		<sec:authentication-provider ref="casAuthenticationProvider" />
+	</sec:authentication-manager>
+	<!-- 认证管理器，下面的顺序不同会影响报错的信息 end -->
+
+	<!-- 认证管理器，daoAuthenticationProvider start -->
+	<bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="jdbcDaoImpl" />
+		<property name="userCache" ref="userCache" />
+		<property name="hideUserNotFoundExceptions" value="false" />
+	</bean>
+	<bean id="userCache"
+		class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+		<property name="cache" ref="userCacheBackend" />
+	</bean>
+	<bean id="userCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="cacheName" value="userCache" />
+	</bean>
+
+	<!-- 认证管理器，daoAuthenticationProvider end -->
+	<!-- 认证管理器 anonymousAuthenticationProvider start -->
+	<bean id="anonymousAuthenticationProvider"
+		class="org.springframework.security.authentication.AnonymousAuthenticationProvider">
+		<property name="key" value="foobar" />
+	</bean>
+	<!-- 认证管理器 anonymousAuthenticationProvider end -->
+	<!-- 认证管理器 cas认证提供器，定义客户端的验证方式 start -->
+	<bean id="casAuthenticationProvider"
+		class="org.springframework.security.cas.authentication.CasAuthenticationProvider">
+		<property name="statelessTicketCache" ref="statelessTicketCache" />
+		<property name="authenticationUserDetailsService">
+			<bean
+				class="org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper">
+				<constructor-arg ref="jdbcDaoImpl" />
+			</bean>
+		</property>
+		<property name="serviceProperties" ref="serviceProperties" />
+		<property name="ticketValidator">
+			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+				<constructor-arg index="0" value="${etms.auth.cas.validate}" />
+			</bean>
+		</property>
+		<property name="key" value="cap" />
+	</bean>
+	<bean id="serviceProperties" class="org.springframework.security.cas.ServiceProperties">
+		<property name="service" value="${etms.auth.cas.authService}" />
+		<property name="sendRenew" value="false" />
+	</bean>
+	<bean id="statelessTicketCache"
+		class="org.springframework.security.cas.authentication.EhCacheBasedTicketCache">
+		<property name="cache" ref="ticketCacheBackend" />
+	</bean>
+	<bean id="ticketCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="cacheName" value="ticketCache" />
+	</bean>
+	<!-- 认证管理器 cas认证提供器，定义客户端的验证方式 end -->
+
+	<!-- 负责在每次请求的开始将session中的信息保存在ThreadLocal类型的SessionContext中，并在请求结束的时候清除SessionContext中的信息，并把修改过的SessionContext保存到Session中 -->
+	<bean id="httpSessionContextIntegrationFilter"
+		class="org.springframework.security.web.context.HttpSessionContextIntegrationFilter">
+	</bean>
+	<!-- ===============普通认证的过滤=========== -->
+	<bean id="authenticationProcessingFilter"
+		class="org.springframework.security.web.authentication.AuthenticationProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="authenticationFailureHandler">
+			<bean
+				class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+				<property name="defaultFailureUrl" value="/login.jsp?type=passError" />
+			</bean>
+		</property>
+		<property name="authenticationSuccessHandler">
+			<bean
+				class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+				<property name="defaultTargetUrl" value="/index/index!toIndex.action" />
+			</bean>
+		</property>
+		<property name="filterProcessesUrl" value="/j_spring_security_check" />
+		<property name="rememberMeServices" ref="rememberMeServices" />
+	</bean>
+
+	<!--设置CAS认证的过滤 -->
+	<bean id="casAuthenticationFilter"
+		class="org.springframework.security.cas.web.CasAuthenticationFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="authenticationFailureHandler">
+			<bean
+				class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+				<property name="defaultFailureUrl" value="/casfailed.jsp" />
+			</bean>
+		</property>
+		<property name="authenticationSuccessHandler">
+			<bean
+				class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+				<property name="defaultTargetUrl" value="/index/index!toIndex.action" />
+			</bean>
+		</property>
+		<property name="filterProcessesUrl" value="/j_spring_cas_security_check" />
+		<property name="rememberMeServices" ref="rememberMeServices" />
+	</bean>
+	<!-- 异常处理filter ExceptionTranslationFilter start -->
+	<!-- 异常处理filter exceptionTranslationFilterForDB 处理DB方式登陆的 异常 start -->
+	<bean id="exceptionTranslationFilterForDB"
+		class="org.springframework.security.web.access.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint">
+			<ref local="authenticationProcessingFilterEntryPoint" />
+		</property>
+		<property name="accessDeniedHandler">
+			<bean
+				class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+				<property name="errorPage" value="/acerror.jsp" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="authenticationProcessingFilterEntryPoint"
+		class="org.springframework.security.web.authentication.AuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl">
+			<value>/login.jsp?type=noLogin</value>
+		</property>
+		<property name="forceHttps">
+			<value>false</value>
+		</property>
+
+	</bean>
+	<!-- 异常处理filter exceptionTranslationFilterForDB 处理DB方式登陆的 异常 end -->
+	<!-- 异常处理filter exceptionTranslationFilterForCAS 处理CAS方式登陆的 异常 start -->
+	<bean id="exceptionTranslationFilterForCAS"
+		class="org.springframework.security.web.access.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint" ref="casProcessingFilterEntryPoint" />
+		<property name="accessDeniedHandler">
+			<bean
+				class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+				<property name="errorPage" value="/acerror.jsp" />
+			</bean>
+		</property>
+	</bean>
+	<!-- CAS认证切入点，声明cas服务器端登录的地址 -->
+	<bean id="casProcessingFilterEntryPoint"
+		class="org.springframework.security.cas.web.CasAuthenticationEntryPoint">
+		<property name="loginUrl" value="${etms.auth.cas.loginUrl}" />
+		<property name="serviceProperties" ref="serviceProperties" />
+	</bean>
+	<!-- 异常处理filter exceptionTranslationFilterForCAS 处理CAS方式登陆的 异常 end -->
+	<!-- 异常处理filter ExceptionTranslationFilter end -->
+
+	<!-- 注销客户端 Filter -->
+	<bean id="singleLogoutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter" />
+	<!-- 注销服务器端Filter -->
+	<bean id="requestSingleLogoutFilter"
+		class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<constructor-arg value="${etms.auth.cas.logoutUrl}" />
+		<constructor-arg>
+			<bean
+				class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+		</constructor-arg>
+		<property name="filterProcessesUrl" value="/j_spring_cas_security_logout" />
+	</bean>
+	<!-- 普通系统登出的过滤器 -->
+	<bean id="logoutFilter"
+		class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<constructor-arg value="/login.jsp" />
+		<constructor-arg>
+			<list>
+				<ref bean="rememberMeServices" />
+				<bean
+					class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<!-- 用户的服务端查询，覆盖通过名称查询人员和权限 -->
+
+	<sec:jdbc-user-service id="jdbcDaoImpl"
+		data-source-ref="dataSource"
+		authorities-by-username-query="select tb_etms_base_person.login_name,tb_sec_role.role_name
+				from tb_sec_pri_ass join tb_etms_base_person on
+				tb_sec_pri_ass.emp_id=tb_etms_base_person.id join
+				tb_sec_role on tb_sec_pri_ass.role_id=tb_sec_role.id
+				where tb_etms_base_person.login_name=?"
+		users-by-username-query="select login_name,login_password,is_enable from
+				tb_etms_base_person where is_enable=1 and login_name=?"
+		role-prefix="ROLE_" />
+	<!-- end -->
+	<!-- ================2 p49=========== -->
+
+	<bean id="rememberMeServices"
+		class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+		<property name="userDetailsService" ref="jdbcDaoImpl" />
+		<property name="key" value="springRocks" />
+	</bean>
+	<!-- end -->
+
+	<!-- ====匿名的过滤器==== -->
+	<bean id="anonymousProcessingFilter"
+		class="org.springframework.security.web.authentication.AnonymousAuthenticationFilter">
+		<property name="key">
+			<value>foobar</value>
+		</property>
+		<property name="userAttribute">
+			<value>anonymousUser,ROLE_ANONYMOUS</value>
+		</property>
+	</bean>
+	<!-- ================9=========== -->
+	<bean id="filterInvocationInterceptor"
+		class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+		<property name="validateConfigAttributes" value="true" />
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="accessDecisionManager" ref="accessDecisionManager" />
+		<property name="securityMetadataSource" ref="securityMetadataSource" />
+	</bean>
+
+	<bean id="accessDecisionManager"
+		class="org.springframework.security.access.vote.AffirmativeBased">
+		<!-- 是否允许所有的投票者弃权,如果为false，表示如果所有的投票者弃权，就禁止访问 -->
+		<property name="allowIfAllAbstainDecisions" value="false" />
+		<property name="decisionVoters">
+			<list>
+				<!-- RoleVoter默认角色名称都要以ROLE_开头，否则不会被计入权限控制，如果要修改前缀，可以通过对rolePrefix属性进行修改 -->
+				<bean class="org.springframework.security.access.vote.RoleVoter" />
+				<bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+			</list>
+		</property>
+	</bean>
+	<bean id="securityMetadataSource"
+		class="com.taiji.security.web.access.SecurityMetadataEditSource">
+		<property name="dataSource" ref="dataSource" />
+		<property name="webresdbCache" ref="webresCacheBackend" />
+	</bean>
+	<bean id="webresCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="cacheName" value="webresdbCache" />
+	</bean>
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" />
+</beans>
+
+
+

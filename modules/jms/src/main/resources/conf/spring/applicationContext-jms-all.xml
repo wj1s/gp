@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="true" default-autowire="byName">
+  
+  	<bean id="jobExecutorServiceStart" name="jobExecutorServiceStart"
+		class="org.jbpm.job.executor.CustomJobExecutorServiceStart" init-method="startTmsJbpmJob">
+		<property name="jbpmConfiguration" ref="jbpmConfiguration" />
+		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="isOpen" value="${etms.jbpm.jobService.isOpen}"/>
+	</bean>
+  
+  	<bean name="accdAndImptReportHandler" id="accdAndImptReportHandler"
+		class="gov.abrs.etms.jms.resend.AccdAndImptReportHandler" />
+		
+	<bean name="accdUploadHandler" class="gov.abrs.etms.jms.resend.AccdUploadHandler"/>
+	
+	<bean name="sendDataService"
+		class="gov.abrs.etms.jms.resend.SendDataService">
+		<property name="brokerUrl" value="${activeMQ.receiveURL}"/>
+		<property name="mqRept" value="LaunchReportReceive"/>
+		<property name="mqAccd" value="LaunchAccidentReceive"/>
+		<property name="mqTechAccd" value="TechAccidentReceive"/>
+		<property name="mqTechRept" value="TechReptReceive"/>
+	</bean>
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+    	<constructor-arg value="${activeMQ.receiveURL}" />
+    </bean>
+	
+	<bean id="operateListener" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+    	<constructor-arg>
+    		<bean class="gov.abrs.etms.jms.receive.ReceiveData"/>
+    	</constructor-arg>
+    	<property name="defaultListenerMethod" value="doProcess" />
+    </bean>
+    <bean id="queueReceive" class="org.apache.activemq.command.ActiveMQQueue">
+    	<constructor-arg value="${activeMQ.queue.station}"/>
+    </bean>
+    <bean id="listenerLaunchAccident" 
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer"> 
+		<property name="concurrentConsumers" 
+            value="1" /> 
+        <property name="connectionFactory" 
+            ref="connectionFactory" /> 
+        <property name="destination" 
+            ref="queueReceive" /> 
+        <property name="messageListener" 
+            ref="operateListener" /> 
+        <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE"></property>  
+        <property name="transactionManager"><null/></property> 
+    </bean> 
+    <bean name="techUploadHandler" class="gov.abrs.etms.jms.resend.TechUploadHandler" />
+    <bean name="techReptUploadHandler" class="gov.abrs.etms.jms.resend.TechReptUploadHandler" />
+    <bean name="techHelper" class="gov.abrs.etms.jms.resend.TechHelper" />
+	<bean name="receiveData"
+		class="gov.abrs.etms.jms.receive.ReceiveData" />
+	<bean name="receiveReptAudit"
+		class="gov.abrs.etms.jms.receive.ReceiveReptAudit" />
+	<bean name="receiveAccdAudit"
+		class="gov.abrs.etms.jms.receive.ReceiveAccdAudit" />
+	<bean name="receiveReptList" class="gov.abrs.etms.jms.receive.ReceiveReptList" />
+	<bean name="receiveReptPattern" class="gov.abrs.etms.jms.receive.ReceiveReptPattern" />	
+</beans>	 

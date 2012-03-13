@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.taiji.etms1</groupId>
+  <artifactId>etms-log</artifactId>
+  <name>ETMS 1 - LOG</name>
+  <packaging>jar</packaging>
+  
+  <parent>
+    <artifactId>etms</artifactId>
+    <groupId>com.taiji.etms1</groupId>
+    <version>1.1-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  
+  <dependencies>
+  	<!-- other projects -->
+	<dependency>
+		<groupId>com.taiji.etms1</groupId>
+		<artifactId>etms-common</artifactId>
+	</dependency>
+	 
+	<dependency>
+		<groupId>com.taiji.etms1</groupId>
+		<artifactId>etms-model</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.taiji.etms1</groupId>
+		<artifactId>etms-service</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.taiji.etms1</groupId>
+		<artifactId>etms-security</artifactId>
+	</dependency>
+		
+  </dependencies>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">  
+    <decorator name="default" page="default.ftl">  
+        <pattern>/*.action</pattern>
+    </decorator>
+    <decorator name="ajax" page="ajax.ftl">  
+        <pattern>/*.ajax</pattern>
+    </decorator>
+    <decorator name="blank" page="blank.ftl">  
+        <pattern>/*.blank</pattern>
+    </decorator>    
+</decorators>  

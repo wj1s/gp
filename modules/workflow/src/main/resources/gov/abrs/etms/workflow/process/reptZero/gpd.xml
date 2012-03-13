@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="零报告上报流程" width="673" height="327">
+  <node name="技办上报" x="-17" y="82" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="技术主管审核" x="162" y="82" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="-8" y="-20"/>
+    </transition>
+  </node>
+  <node name="单位主管审核" x="163" y="146" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="-10"/>
+      <bendpoint w1="196" h1="1" w2="1" h2="65"/>
+    </transition>
+  </node>
+  <node name="上报局端" x="164" y="210" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="-10"/>
+      <bendpoint w1="194" h1="-3" w2="0" h2="125"/>
+    </transition>
+  </node>
+  <node name="技办重新上报" x="358" y="82" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="结束" x="166" y="277" width="140" height="40"/>
+</process-diagram>

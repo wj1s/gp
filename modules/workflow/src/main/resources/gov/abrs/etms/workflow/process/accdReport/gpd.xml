@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="事故上报流程" width="860" height="539">
+  <node name="填写异态" x="33" y="146" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+  </node>
+  <node name="机房主任审核" x="100" y="248" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="未引起事故">
+      <label x="3" y="-98"/>
+      <bendpoint w1="-1" h1="185" w2="-262" h2="2"/>
+      <bendpoint w1="-4" h1="245" w2="-88" h2="-5"/>
+      <bendpoint w1="5" h1="245" w2="-79" h2="-5"/>
+    </transition>
+  </node>
+  <node name="技办审核定性" x="184" y="147" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="未引起事故">
+      <label x="5" y="-10"/>
+      <bendpoint w1="0" h1="300" w2="-177" h2="16"/>
+    </transition>
+  </node>
+  <node name="技术主管审核" x="359" y="144" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="5" y="11"/>
+    </transition>
+  </node>
+  <node name="单位主管审核" x="360" y="246" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="驳回">
+      <label x="-113" y="7"/>
+      <bendpoint w1="241" h1="-2" w2="0" h2="101"/>
+    </transition>
+  </node>
+  <node name="事故重新上报(技办)" x="586" y="145" width="173" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+    </transition>
+    <transition name="未引起事故">
+      <label x="5" y="-10"/>
+      <bendpoint w1="124" h1="-2" w2="365" h2="-288"/>
+      <bendpoint w1="123" h1="351" w2="541" h2="-2"/>
+    </transition>
+  </node>
+  <node name="上报局端" x="361" y="334" width="140" height="40">
+    <transition name="">
+      <label x="5" y="-10"/>
+      <bendpoint w1="1" h1="163" w2="178" h2="-1"/>
+    </transition>
+    <transition name="驳回">
+      <label x="-111" y="13"/>
+      <bendpoint w1="241" h1="-1" w2="1" h2="190"/>
+    </transition>
+  </node>
+  <node name="结束" x="184" y="498" width="140" height="40"/>
+</process-diagram>

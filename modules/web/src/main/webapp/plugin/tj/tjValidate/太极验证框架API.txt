@@ -1,0 +1,173 @@
+太极验证框架
+
+1.特点
+易用，高效，覆盖面广
+
+易用：使用方法简单易懂，标签订制灵活多变
+高效：表单输入实时调用验证，自带缓存保证验证过程
+覆盖面广：支持非空、字符、长度等常见验证，自定义正则表达式，自定义验证方法的验证，支持多表单元素的联合验证，复杂验证过程的延迟验证。
+
+2.使用方法
+引入jquery.tj.validate.js到页面：
+<script type="text/javascript" src="<%=request.getContextPath()%>/Interface/JQuery/TJ/jquery.tj.validate.js" />
+
+在页面加载时表单对象调用form()方法：
+$(document).ready(function(){
+	$('#elecItemForm').form();
+}
+
+使用ajaxForm提交表单之前调用验证方法：
+$('#elecItemForm').ajaxForm({
+	beforeSubmit: validateForm,
+	dataType: 'xml',
+	success: function(data){
+		...
+	}
+});
+
+验证方法中取表单对象的'tjForm'属性，调用checkSubmit()，返回一个boolean值，表示表单是否通过了太极验证框架验证：
+function validateForm(){
+	return $('#elecItemForm').data('tjForm').checkSubmit();
+}
+
+2标签验证属性的订制
+
+使用于各种表单元素，包括input, select, textArea等
+表单元素标签需要有name属性，id属性，verify属性
+
+——————————————————————————
+NotNull 非空验证：
+<select name="trId" id="trId" verify="发射机|NotNull">
+</select>
+
+提示信息为：发射机不能为空
+
+——————————————————————————
+
+Number 必须是数字：
+<input type="text" name="money" id="money" verify="金额|Number" />
+
+提示信息为：金额必须是一个数字
+
+——————————————————————————
+
+Int 必须是整数:
+<input type="text" name="money" id="money" verify="年龄|Int" />
+
+提示信息为：必须是一个整数
+
+——————————————————————————
+
+Date 必须是日期类型
+<input type="text" name="date" id="date" verify="日期|Date" />
+
+提示信息为：不是正确的日期格式，类似：2001-01-01
+
+——————————————————————————
+
+Time 必须是时间类型
+<input type="text" name="time" id="time" verify="时间|Time" />
+
+提示信息为：不是正确的时间格式，类似：01:01:01
+
+——————————————————————————
+
+Datetime 必须是日期时间类型
+<input type="text" name="startTime" id="startTime" verify="开始时间|Datetime" />
+
+提示信息为：不是正确格式，类似：2001-01-01 01:01:01
+
+——————————————————————————
+
+Email 必须是Email类型
+<input type="text" name="email" id="email" verify="邮箱|Email" />
+
+提示信息为：不是正确的EMAIL格式
+
+——————————————————————————
+
+Length 验证输入内容的长度
+
+<textarea name="rmks" rows="6" cols="100" id="rmks" verify="不合格情况|Length<200"></textarea>
+
+提示信息为： 不能大于200个字.
+
+支持:>, <, =
+——————————————————————————
+
+Times 验证时间对比
+
+<input name="startTime" id="startTime" type="text" 
+ verify="开始时间|Times<#endTime@故障结束时间"/>
+		       
+提示信息：开始时间必须早于故障结束时间
+        
+<input name="endTime" id="endTime" type="text" 
+verify="结束时间|Times>#startTime@故障开始时间"/>
+
+提示信息：结束时间时间必须晚于故障开始时间
+
+支持：>,>=, <, <=, =
+
+#startTime 表示对比标签的id， @故障开始时间 用来拼接提示信息
+
+——————————————————————————
+
+Value 验证值的对比
+
+<input type="text" id="broadTimeMinutes0" name="broadTimeMinutes" verify="播音分钟数|Value>=0"/>
+
+提示信息： 播音分钟数必须大于等于0
+
+<input type="text" name="testCnt" id="testCnt" verify="测量次数|Value>=#unqualifiedCnt@不合格次数" />
+
+提示信息： 测量次数必须大于等于不合格次数
+					
+<input type="text" name="unqualifiedCnt" class="input_text" id="unqualifiedCnt" verify="不合格次数|Value<=#testCnt@测量次数"/>
+
+提示信息： 不合格次数必须小于等于测量次数
+
+支持：>,>=, <, <=, =
+
+#unqualifiedCnt 表示对比标签的id， @不合格次数 用来拼接提示信息
+
+支持00:00:00与秒值的对比
+<input type="text" name="time" verify="时间|Value>=2@秒" />
+
+提示信息： 时间必须大于2秒
+
+——————————————————————————
+
+Regex 自定义正则表达式
+
+<input type="text" name="freq" id="freq" verify="频率|Regex={val:'/^[1-9]\\d{0,9}$/',msg:'应为正整数，最多10位!'} />
+
+val表示正则表达式，需要用转义
+msg表示自定义提示信息
+
+——————————————————————————
+
+Fun 自定义验证方法
+
+<input type="text" name="distortion" id="distortion" verify="${dist }|Fun={val:'valDistortion',msg:'取值范围为: ${distLower}~${distUpper}'}"/>
+
+val表示方法名
+msg表示自定义提示信息
+
+——————————————————————————
+
+带延迟的验证的自定义验证方法
+
+<input type="text" name="freq" class="input_text" maxlength="10" id="freq"  verify="频率|Fun={val:'validateClassCode', msg:'本发射机此年月下已经有相同频率的数据，请重新输入!',delay:true,link:'#ddate, #trId'}"/>
+
+delay默认为false，不带延迟，这里设为true，表示只有相关验证标签触发blur事件时，才进行验证
+link表示 本标签的验证与两外两个标签的值有关，相关联的值计入缓存
+
+
+——————————————————————————
+
+允许多个验证单元连用，用&&连接
+
+<input type="text" name="freq" class="input_text" maxlength="10" id="freq" style="width:90px;"
+verify="频率|NotNull&&Regex={val:'/^[1-9]\\d{0,9}$/',msg:'应为正整数，最多10位!'}&&Fun={val:'validateClassCode', msg:'本发射机此年月下已经有相同频率的数据，请重新输入!', delay:true, link:'#ddate, #trId'}"/>
+
