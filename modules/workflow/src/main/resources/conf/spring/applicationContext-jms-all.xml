@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-lazy-init="true" default-autowire="byName">
+
+    <bean name="workFlowExtDAO"
+          class="gov.abrs.etms.service.workflow.WorkFlowExtDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <!-- 使用JBPM -->
+    <bean id="jbpmConfiguration"
+          class="org.springmodules.workflow.jbpm31.LocalJbpmConfigurationFactoryBean">
+        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="configuration" value="classpath:jbpm.cfg.xml" />
+    </bean>
+
+    <bean id="jbpmTemplate"
+          class="org.springmodules.workflow.jbpm31.JbpmTemplate">
+        <property name="jbpmConfiguration" ref="jbpmConfiguration" />
+    </bean>
+</beans>	 

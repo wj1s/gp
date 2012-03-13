@@ -155,20 +155,4 @@
 	
 	<!-- 使用annotation定义事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
-	<!-- 使用JBPM -->
-	<bean id="jbpmConfiguration"
-		class="org.springmodules.workflow.jbpm31.LocalJbpmConfigurationFactoryBean">
-		<property name="sessionFactory" ref="sessionFactory" />
-		<property name="configuration" value="classpath:jbpm.cfg.xml" />
-	</bean>
-
-	<bean id="jbpmTemplate"
-		class="org.springmodules.workflow.jbpm31.JbpmTemplate">
-		<property name="jbpmConfiguration" ref="jbpmConfiguration" />
-	</bean>
-	<bean name="workFlowExtDAO"
-		class="gov.abrs.etms.service.workflow.WorkFlowExtDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 </beans>
