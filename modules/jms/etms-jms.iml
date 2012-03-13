@@ -6,7 +6,7 @@
         <fileset id="fileset1" name="My Fileset" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/conf/spring/applicationContext-jms-all.xml</file>
           <file>file://$MODULE_DIR$/../common/src/main/resources/conf/spring/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/../test-base/src/main/resources/conf/spring/applicationContext-test.xml</file>
+          <file>file://$MODULE_DIR$/../workflow/src/main/resources/conf/spring/applicationContext-jms-all.xml</file>
         </fileset>
       </configuration>
     </facet>

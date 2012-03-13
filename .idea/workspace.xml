@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="367dd63f-0746-40a2-b314-c29cc941d7a0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java" afterPath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyRecordServiceTest.java" afterPath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyRecordServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyServiceTest.java" afterPath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/report/ReptServiceTest.java" afterPath="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/report/ReptServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java" afterPath="$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/adsyn/etms-adsyn.iml" afterPath="$PROJECT_DIR$/modules/adsyn/etms-adsyn.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/jms/etms-jms.iml" afterPath="$PROJECT_DIR$/modules/jms/etms-jms.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/service/etms-service.iml" afterPath="$PROJECT_DIR$/modules/service/etms-service.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/test-base/etms-test-base.iml" afterPath="$PROJECT_DIR$/modules/test-base/etms-test-base.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workflow/etms-workflow.iml" afterPath="$PROJECT_DIR$/modules/workflow/etms-workflow.iml" />
     </list>
     <ignored path="etms1.3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,94 +69,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="applicationContext-test.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/test-base/src/main/resources/conf/spring/applicationContext-test.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="83" selection-start="8889" selection-end="8889" vertical-scroll-proportion="-15.727273">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DutyServiceTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="0" selection-start="1795" selection-end="1922" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DutyRecordServiceTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyRecordServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1252" selection-end="1379" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReptServiceTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/report/ReptServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="127" selection-start="500" selection-end="500" vertical-scroll-proportion="0.15075377">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseTestCase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/test-base/src/main/java/com/taiji/common/test/DatabaseTestCase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="52" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenSessionInUnitTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/test-base/src/main/java/com/taiji/common/test/OpenSessionInUnitTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="62" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractJUnit4SpringContextTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.0.3.RELEASE/spring-test-3.0.3.RELEASE-sources.jar!/org/springframework/test/context/junit4/AbstractJUnit4SpringContextTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="22" selection-start="3037" selection-end="3069" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbnormalServiceTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="1012" selection-end="1139" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CawaveService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/service/src/main/java/gov/abrs/etms/service/baseinfo/CawaveService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkFlowServiceImplTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WorkFlowServiceImplTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="127" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0">
+            <state line="20" column="35" selection-start="763" selection-end="763" vertical-scroll-proportion="0.06787331">
               <folding />
             </state>
           </provider>
@@ -182,12 +98,12 @@
         <option value="$PROJECT_DIR$/modules/workflow/src/main/resources/conf/spring/applicationContext-jms-all.xml" />
         <option value="$PROJECT_DIR$/modules/common/pom.xml" />
         <option value="$PROJECT_DIR$/modules/web/src/main/java/gov/abrs/etms/action/abnormal/AbnormalAction.java" />
-        <option value="$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java" />
         <option value="$PROJECT_DIR$/modules/test-base/src/main/resources/conf/spring/applicationContext-test.xml" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyRecordServiceTest.java" />
         <option value="$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/report/ReptServiceTest.java" />
+        <option value="$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java" />
       </list>
     </option>
   </component>
@@ -219,6 +135,25 @@
     <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="803" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Spring Model</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SpringJavaAutowiringInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -414,176 +349,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/main/resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="conf/spring">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/main/resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/main/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/test-base">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/main/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="com/taiji/common/test">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/test/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/test/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="gov/abrs/etms/service/report">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="etms-service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="modules/service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/test/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="gov/abrs/etms/service/duty">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane">
@@ -636,7 +401,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="MavenSettings" />
     <property name="recentsLimit" value="5" />
-    <property name="project.structure.side.proportion" value="0.35634744" />
+    <property name="project.structure.side.proportion" value="0.29287305" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -1069,16 +834,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/security/src/main/resources/conf/security/applicationContext-security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/web/src/main/resources/struts.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="92" selection-start="754" selection-end="754" vertical-scroll-proportion="-8.181818">
@@ -1127,13 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1012" selection-end="1139" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1795" selection-end="1922" vertical-scroll-proportion="0.0">
@@ -1162,13 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="127" selection-start="658" selection-end="658" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/test-base/src/main/resources/conf/spring/applicationContext-test.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="83" selection-start="8889" selection-end="8889" vertical-scroll-proportion="-15.727273">
@@ -1181,14 +922,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/duty/DutyRecordServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1252" selection-end="1379" vertical-scroll-proportion="0.0">
+        <state line="42" column="50" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/report/ReptServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="127" selection-start="500" selection-end="500" vertical-scroll-proportion="0.15075377">
+        <state line="18" column="33" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/AbnormalServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="13" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/service/src/test/java/gov/abrs/etms/service/abnormal/TechAccidentServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="559" selection-end="559" vertical-scroll-proportion="0.23076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/workflow/src/test/java/gov/abrs/etms/service/workflow/WorkFlowServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="35" selection-start="763" selection-end="763" vertical-scroll-proportion="0.06787331">
           <folding />
         </state>
       </provider>
@@ -1247,11 +1009,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web|etms-web</last-edited>
+          <last-edited>Spring|etms-workflow</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.35634744" />
+                <option value="0.29287305" />
               </list>
             </option>
           </splitter-proportions>
