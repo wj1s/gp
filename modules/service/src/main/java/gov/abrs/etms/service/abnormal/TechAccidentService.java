@@ -19,6 +19,10 @@ import org.springframework.util.Assert;
 public class TechAccidentService extends CrudService<TechAccident> {
 	private ExecuteDAO executeDAO;
 
+    @Autowired
+    private AbnEquipService abnEquipService;
+
+
 	@Autowired
 	public void setExecuteDAO(ExecuteDAO executeDAO) {
 		this.executeDAO = executeDAO;
